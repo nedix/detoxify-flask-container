@@ -14,9 +14,9 @@ docker run --pull always --rm --name detoxify \
     nedix/detoxify
 ```
 
-### 2. Request toxicity information
+#### 2. Classify toxicity
 
-The following command sends a HTTP request that classifies the toxicity of a text message.
+This command sends a HTTP request to classify the toxicity of a message.
 
 ```shell
 curl '127.0.0.1:8080?text=foobar'
