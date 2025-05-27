@@ -1,33 +1,29 @@
-# [detoxify-flask-container](https://github.com/nedix/detoxify-flask-container)
+# [detoxify-flask-container][project]
 
 HTTP API to classify the toxicity of text messages.
 
+
 ## Usage
 
-#### 1. Start the service
 
-The following command starts the service on port `8080`.
+### 1. Start the container
+
+The following command starts the container on port `80`.
 
 ```shell
-docker run --pull always --rm --name detoxify \
-    -p 8080:80 \
+docker run --rm --pull always --name detoxify \
+    -p 127.0.0.1:80:80 \
     nedix/detoxify
 ```
 
-#### 2. Classify toxicity
+
+### 2. Classify toxicity
 
 This command sends a HTTP request to classify the toxicity of a message.
 
 ```shell
-curl '127.0.0.1:8080?text=foobar'
+curl '127.0.0.1:80?text=foobar'
 ```
 
-<hr>
 
-## Attribution
-
-- [Detoxify] ([License](https://raw.githubusercontent.com/unitaryai/detoxify/master/LICENSE))
-- [Flask] ([License](https://raw.githubusercontent.com/pallets/flask/main/LICENSE.txt))
-
-[Detoxify]: https://github.com/unitaryai/detoxify
-[Flask]: https://github.com/pallets/flask
+[project]: https://hub.docker.com/r/nedix/detoxify
