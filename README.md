@@ -11,7 +11,10 @@ HTTP API to classify the toxicity of text messages.
 The following command will start the container using port `80` for the API.
 
 ```shell
-docker run --rm --pull always --name detoxify \
+docker run \
+    --name detoxify \
+    --pull always \
+    --rm \
     -p 127.0.0.1:80:80 \
     nedix/detoxify
 ```
