@@ -14,7 +14,7 @@ The following command will start the container using port `80` for the API.
 docker run \
     --name detoxify \
     --pull always \
-    --rm \
+    --restart unless-stopped \
     -p 127.0.0.1:80:80 \
     nedix/detoxify
 ```
