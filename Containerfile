@@ -4,7 +4,7 @@ ARG FLASK_VERSION=3.1.3
 ARG PYTHON_VERSION=3.14
 ARG TORCH_VERSION=2.12.0
 
-FROM --platform=$BUILDPLATFORM python:${PYTHON_VERSION}-slim-${DEBIAN_VERSION}
+FROM python:${PYTHON_VERSION}-slim-${DEBIAN_VERSION}
 
 ARG DETOXIFY_VERSION
 ARG FLASK_VERSION
@@ -32,10 +32,10 @@ RUN apt update -y \
     && rustup self uninstall -y \
     && apt remove --purge -y ${BUILD_DEPS}
 
+COPY /rootfs/ /
+
 RUN echo "Warming up" \
     && python -c "from detoxify import Detoxify; Detoxify('multilingual').predict('Hello world!')"
-
-COPY --chown=nobody rootfs /
 
 ENTRYPOINT ["/entrypoint.py"]
 
