@@ -40,4 +40,11 @@
       packageNameTemplate: "torch"
     },
   ],
+  packageRules: [
+    {
+      description: "Custom versioning for Debian",
+      matchPackageNames: ["debian"],
+      extractVersion: "^(?<version>[a-z]*)$",
+    },
+  ],
 }
